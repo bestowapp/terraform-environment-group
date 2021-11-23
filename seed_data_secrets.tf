@@ -1,5 +1,5 @@
 locals {
-  secrets = tomap({
+  actions_environment = tomap({
     "bucket_name" : google_storage_bucket.state.name,
     "organization_id" : var.organization_id,
     "billing_account" : var.billing_account,
@@ -11,9 +11,9 @@ locals {
   })
 }
 
-resource "github_actions_secret" "bucket_name" {
+resource "github_actions_secret" "actions_environment" {
   repository      = github_repository.live_environment_group.name
-  for_each        = local.secrets
+  for_each        = local.actions_environment
   secret_name     = each.key
   plaintext_value = each.value
 }
