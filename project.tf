@@ -4,7 +4,7 @@ module "project" {
 
   name              = var.name
   org_id            = var.organization_id
-  folder_id = google_folder.group_folder.folder_id
+  folder_id = var.group_folder_id
   billing_account   = var.billing_account
   random_project_id = true
   activate_apis = [
