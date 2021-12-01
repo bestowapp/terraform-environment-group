@@ -3,7 +3,7 @@ module "project" {
   version = "~> 11.2"
 
   name              = var.name
-  org_id            = var.organization_id
+  org_id            = ""
   folder_id = var.group_folder_id
   billing_account   = var.billing_account
   random_project_id = true
