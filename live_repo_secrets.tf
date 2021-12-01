@@ -6,8 +6,8 @@ locals {
 #    "service_account_id" : module.project.service_account_id,
     "service_account_email" : module.project.service_account_email,
     "group_name" : var.name,
-    "group_folder_id" : google_folder.group_folder.folder_id,
-    "group_folder_name" : google_folder.group_folder.name,
+    "group_folder_id" : var.group_folder_id,
+    "group_folder_name" : var.group_folder_name,
     "group_project_id": module.project.project_id,
   })
 }
