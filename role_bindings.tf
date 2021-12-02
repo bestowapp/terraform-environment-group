@@ -20,7 +20,7 @@ resource "google_organization_iam_member" "admin_bindings" {
 }
 
 resource "google_folder_iam_member" "admin_bindings" {
-  folder   = var.group_folder_id
+  folder   = google_folder.group_folder.folder_id
   for_each = toset(["roles/billing.projectManager",
 #    "roles/billing.user",
     "roles/resourcemanager.projectCreator", "roles/iam.securityAdmin", "roles/resourcemanager.folderAdmin"])
@@ -29,7 +29,7 @@ resource "google_folder_iam_member" "admin_bindings" {
 }
 
 resource "google_folder_iam_member" "default_service_account_environment_group_folder" {
-  folder   = var.group_folder_id
+  folder   = google_folder.group_folder.folder_id
   member   = "serviceAccount:${google_service_account.default_service_account.email}"
   for_each = toset([
     "roles/resourcemanager.folderAdmin", "roles/resourcemanager.organizationAdmin", "roles/owner",

@@ -64,7 +64,7 @@ resource "google_project" "main" {
   name                = var.name
   project_id          = local.temp_project_id
   #  org_id              = local.project_org_id
-  folder_id           = var.group_folder_id
+  folder_id           = google_folder.group_folder.folder_id
   billing_account     = var.billing_account
   auto_create_network = false
 }
