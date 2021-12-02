@@ -3,12 +3,11 @@ locals {
     "state_bucket_name" : google_storage_bucket.state.name,
     "organization_id" : var.organization_id,
     "billing_account" : var.billing_account,
-#    "service_account_id" : module.project.service_account_id,
-    "service_account_email" : module.project.service_account_email,
+    "service_account_email" : google_service_account.default_service_account.email,
     "group_name" : var.name,
     "group_folder_id" : var.group_folder_id,
     "group_folder_name" : var.group_folder_name,
-    "group_project_id": module.project.project_id,
+    "group_project_id": google_project.main.project_id,
   })
 }
 
