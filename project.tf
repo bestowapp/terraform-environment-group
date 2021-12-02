@@ -1,12 +1,11 @@
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 11.2"
-
+  org_id            = null
   name              = var.name
-  org_id            = ""
-  folder_id = var.group_folder_id
-  billing_account   = var.billing_account
   random_project_id = true
+  billing_account   = var.billing_account
+  folder_id = var.group_folder_id
   activate_apis = [
     "cloudresourcemanager.googleapis.com",
     "serviceusage.googleapis.com",
