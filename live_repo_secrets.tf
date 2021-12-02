@@ -5,8 +5,6 @@ locals {
     "billing_account" : var.billing_account,
     "service_account_email" : google_service_account.default_service_account.email,
     "group_name" : var.name,
-    "group_folder_id" : var.group_folder_id,
-    "group_folder_name" : var.group_folder_name,
     "group_project_id": google_project.main.project_id,
   })
 }
